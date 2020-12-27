@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 var figlet = require('figlet'),
 axios = require('axios'),
