@@ -1,0 +1,25 @@
+{
+  "name": "github-stalk",
+  "version": "1.0.0",
+  "description": "This is a simple code for a github user stalk cli",
+  "main": "App.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0",
+    "figlet": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alestor123/GITHUB-STALK.git"
+  },
+  "author": "Alestor Aldous",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alestor123/GITHUB-STALK/issues"
+  },
+  "homepage": "https://github.com/alestor123/GITHUB-STALK#readme"
+}
