@@ -34,11 +34,26 @@ axios.get(api+'users/'+username+'/repos').then((response) => {
       let languages = response.data.map((repo) => repo.language);
         languages = languages.filter((a, b) => languages.indexOf(a) === b);
               console.log('🌈 ' + chalk.bold.yellow('Langs'));
-        console.log(chalk.green(languages.join(" ")));
+        console.log('\n'+chalk.green(languages.join(" "))+'\n');
 })
 }
 function Activity() {
+console.log(chalk.green.bgRed('\n Activity \n'))
     axios.get(api+'users/'+username+'/events').then((response) => {
-console.log(response.data)
-    })  
+response.data.filter((activity) => acts.includes(activity.type))
+.slice(0, 7).map((activity) => console.log(Events(activity))
+)})}
+function Events(activity){
+var repo = chalk.green(activity.repo.name)
+        if(activity.type=="ForkEvent") return `${chalk.bold.redBright("Forked")} a repo from ${activity.payload.forkee.html_url}`;
+        else if(activity.type=="PullRequestEvent")  return `${chalk.bold.yellowBright(activity.payload.action.charAt(0).toUpperCase() + activity.payload.action.slice(1))} a PR at https://github.com/${repo}`;
+        else if("WatchEvent"==activity.type) return `${chalk.blue.bold("Starred")} https://github.com/${repo}`;
+        else if("CreateEvent"==activity.type)return `${chalk.green.bold("Created")} a ${activity.payload.ref_type} at https://github.com/${repo}`;
+        else if("DeleteEvent"==activity.type) return `${chalk.red.bold("Deleted")} a ${activity.payload.ref_type} at https://github.com/${repo}`;
+        else if("IssuesEvent"==activity.type)return `${chalk.bold.red(activity.payload.action.charAt(0).toUpperCase() + activity.payload.action.slice(1))} an issue at https://github.com/${repo}`;
+        else if("IssueCommentEvent"==activity.type)return `${chalk.bold.red(activity.payload.action.charAt(0).toUpperCase() + activity.payload.action.slice(1))} an issue at https://github.com/${repo}`;
+        else if("PublicEvent"==activity.type)return `${chalk.green("Push")} https://github.com/${repo} public`;
+        else if(activity.type='PushEvent') return `${chalk.bold.magenta("Pushed")} ${activity.payload.size} to https://github.com/${repo}`;
+        else return "";
 }
+    
