@@ -1,7 +1,8 @@
 
 var figlet = require('figlet'),
+Box = require('cli-box'),
 axios = require('axios'),
-username = process.argv[2],
+username = process.argv[2] || 'github',
 api = 'https://api.github.com/',
 chalk = require('chalk');
 figlet('Github Stalk', (err,data) => {
@@ -9,10 +10,11 @@ if(err) throw err
 console.log(chalk.green(data))
 axios.get(api+'users/'+username).then((response) => {
     console.log(chalk.red('👤 : ' + username + ' AKA ' + response.data.name))
-    Info(response)
+Info(response)
 Lang()
 })
 })
+// functions logging info 
 function Info(response){
     console.log(chalk.green('Bio : '+ response.data.bio ))
     console.log(chalk.green('Location : '+ response.data.location ))
