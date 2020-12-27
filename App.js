@@ -1,0 +1,1 @@
+var showBanner = require('node-banner');
