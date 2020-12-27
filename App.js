@@ -1,6 +1,5 @@
 
 var figlet = require('figlet'),
-Box = require('cli-box'),
 axios = require('axios'),
 username = process.argv[2] || 'github',
 api = 'https://api.github.com/',
