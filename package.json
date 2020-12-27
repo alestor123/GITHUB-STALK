@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is a simple code for a github user stalk cli",
   "main": "App.js",
+  "bin": {
+    "github-stalk": "App.js"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
