@@ -1,5 +1,6 @@
 # GITHUB-STALK
 This is a simple code for a github user stalk cli
+
 Quick use 
 ``npx github-stalk <username>``
 
